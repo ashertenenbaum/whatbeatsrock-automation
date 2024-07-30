@@ -10,8 +10,8 @@ class WordViewerApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Word Viewer App")
-        self.root.geometry("300x150")  
-        self.root.attributes("-topmost", True)  
+        self.root.geometry("300x150")
+        self.root.attributes("-topmost", True)
         self.root.resizable(False, False)
 
         self.root.bind("<Button-1>", self.on_start_drag)
@@ -26,13 +26,12 @@ class WordViewerApp:
         self.words = []
         self.current_index = 0
         self.is_running = False
-        self.line_count = 0  
-        self.base_delay = 2.0  
-        self.additional_delay = 0.75 
+        self.line_count = 0
+        self.base_delay = 2.0
+        self.additional_delay = 0.75
 
         self.load_text_from_url()
 
-        # Start key listener thread
         self.listener_thread = threading.Thread(target=self.listen_for_keypress)
         self.listener_thread.daemon = True
         self.listener_thread.start()
@@ -52,11 +51,10 @@ class WordViewerApp:
         url = "https://raw.githubusercontent.com/ashertenenbaum/whatbeatsrock-automation/main/whatbeatsrock2.txt"
         try:
             response = requests.get(url)
-            response.raise_for_status()  
+            response.raise_for_status()
             self.words = [line.strip() for line in response.text.splitlines() if line.strip()]
             self.current_index = 0
             self.line_count = 0
-            print("Text loaded successfully!")  
         except requests.RequestException as e:
             messagebox.showerror("Error", f"Failed to load text from URL: {e}")
 
@@ -65,10 +63,9 @@ class WordViewerApp:
             if self.current_index < len(self.words):
                 word = self.words[self.current_index]
                 self.current_index += 1
-                self.line_count += 1  
+                self.line_count += 1
 
-                pyautogui.typewrite(word, interval=0.05)  
-
+                pyautogui.typewrite(word, interval=0.05)
                 pyautogui.press('enter')
 
                 if self.line_count % 35 == 0:
@@ -77,18 +74,19 @@ class WordViewerApp:
                     delay = self.base_delay
 
                 time.sleep(delay)
-
                 pyautogui.click()
 
-                if self.current_index >= len(self.words):
-                    self.current_index = 0  
+            if self.current_index >= len(self.words):
+                self.is_running = False
+                self.status_label.config(text="Stopped")
+                self.start_stop_button.config(text="Start")
 
     def listen_for_keypress(self):
         while True:
             if keyboard.is_pressed('`'):
                 self.toggle_script()
                 while keyboard.is_pressed('`'):
-                    time.sleep(0.1)  
+                    time.sleep(0.1)
             time.sleep(0.1)
 
     def toggle_script(self):
@@ -105,7 +103,7 @@ class WordViewerApp:
     def run_script(self):
         while self.is_running:
             self.show_next_word()
-            time.sleep(0.1)  
+            time.sleep(0.1)
 
     def on_closing(self):
         self.is_running = False
