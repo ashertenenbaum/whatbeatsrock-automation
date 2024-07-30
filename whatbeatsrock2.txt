@@ -1,0 +1,72 @@
+scissors
+a wrench
+fire
+water
+sponge
+bare hands
+knife
+katana
+gun
+no ammo
+electricity
+blackout
+light
+hammer
+moulded wood
+tree
+lava
+asteroid
+atmosphere
+planet
+exoplanet
+gas giant
+Oort cloud
+solar system
+galaxy
+computer simulation
+rpg game
+first person shooter
+hacks
+antivirus
+remote access trojan
+a computer thats not connected to the internet
+a ethernet cable 
+wire cutter
+laser cutter
+bomb 
+Bomb Disposal Robots
+low battery
+charger 
+Insulator 
+Gravity Manipulator
+Anti-Gravity Field
+Gravity Distortion Device
+Anti-Distortion Field 
+Chaos Engine 
+Predictive Algorithm
+Randomization Field
+Pattern Recognition Engine
+Dimensional Shifter
+Reality Stabilizer
+Multiversal Flux Generator
+Flux Absorber
+Exotic Matter Injector
+Reality Weaving Engine
+Dimensional Stabilizer
+Quantum Field Regulator
+Exotic Matter Neutralizer
+Entropy Suppressor
+air
+Anti-Exotic Matter Shield
+Dimensional Barrier
+Multiversal Stabilizer
+Quantum Entangler
+Reality Distortion Matrix
+Adaptive Learning System
+Flux Amplifier
+Information Scrambler
+Dimensional Anchor Network
+
+
+
+
